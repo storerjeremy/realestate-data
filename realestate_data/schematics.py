@@ -2,9 +2,6 @@ from schematics.models import Model
 from schematics.types import StringType, ListType, ModelType, IntType, BooleanType
 
 
-# 'https://webtools.realestate.com.au/configuring-widgets-included-via-javascript/'
-
-
 class Locality(Model):
     """
     Models the locality object.

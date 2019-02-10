@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='realestate-data',
-    version='0.0.1',
+    version='0.1.0',
     author='Jeremy Storer',
     author_email='storerjeremy@gmail.com',
     description='Realestate Data',

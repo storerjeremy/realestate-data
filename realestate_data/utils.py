@@ -2,7 +2,7 @@ import typing
 import requests
 import json
 
-from realestate_scraper.schematics import Search
+from realestate_data.schematics import Search
 
 
 def paged_results(query: Search, page_size=100) -> typing.Generator[dict, None, None]:
@@ -28,9 +28,3 @@ def paged_results(query: Search, page_size=100) -> typing.Generator[dict, None, 
             more_pages = False
         else:
             next_url = json_data['_links']['next']['href']
-
-
-# for page in paged_results():
-#     print(page)
-#
-# page_data = [page for page in paged_results()]
