@@ -14,7 +14,7 @@ pip install realestate-data
 Build out schematics to represent the search query you are after.
 
 See [here](https://webtools.realestate.com.au/configuring-widgets-included-via-javascript/)
-for available options, or take a look at schematics.py
+for available options, or take a look at ./realestate_data/schematics.py
 
 The below creates a search object that represents
 - Units and apartments for sale
@@ -40,7 +40,7 @@ The below creates a search object that represents
 >>> f = Filters()
 >>> f.property_types = [Filters.PROPERTY_TYPE_APARTMENT, Filters.PROPERTY_TYPE_UNIT]
 >>> f.surrounding_suburbs = True
->>> f.minimum_bedrooms = 1
+>>> f.minimum_bedrooms = 2
 >>> f.minimum_bathrooms = 1
 >>> f.minimum_parking_spaces = 1
 >>> f.price_range = p
@@ -51,7 +51,7 @@ The below creates a search object that represents
 ```
 
 Call validate() on the search object to ensure its valid. It will return
-nothing if valid and
+nothing if valid and an error if not
 
 ```python
 >>> s.validate()
@@ -69,7 +69,20 @@ yields the json returned from each paged request.
 
 ```python
 >>> from realestate_data import paged_results
->>> paged_data = [page for page in paged_data(s)]
+>>> paged_data = [page for page in paged_results(s)]
+```
+
+Or use the Generator how ever you want
+
+```python
+>>> paged_data = paged_results(s)
+>>> page_one = next(paged_data)
+>>> page_two = next(paged_data)
+```
+
+```python
+>>> for page in paged_results(s):
+>>>     print(page)
 ```
 
 ## Todo
