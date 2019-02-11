@@ -88,6 +88,8 @@ Or use the Generator how ever you want
 ## Todo
 
 - Testing
+- Allow passing options to requests eg. headers, proxies etc.
+- Create method to just return the built search url from the Search object
 
 ## Author
 
